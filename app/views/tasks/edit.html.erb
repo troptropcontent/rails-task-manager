@@ -1,0 +1,15 @@
+<%= form_for(@task) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+  <%= f.check_box :completed %>
+  <%= f.label :completed, "This task has been completed" %>
+  <%= f.submit%>
+<% end %>
+<%= link_to(task_path(@task),
+            method: :delete,
+            data: { confirm: "Are you sure?" }) do %>
+    <i class="far fa-trash-alt"></i>
+<% end %>    
+<%= link_to "Go back home", tasks_path %>

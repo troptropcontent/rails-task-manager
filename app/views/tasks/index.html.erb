@@ -1,0 +1,26 @@
+<h1>My Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+    <%= link_to task.title, task_path(task) %>
+    -
+    <%# <%= link_to ("<i class="fa fa-link"></i>"), edit_task_path(task) %>  
+    <%= link_to(edit_task_path(task)) do %>
+        <i class="fa fa-edit"></i>
+    <% end %>    
+    -
+    <%= link_to(task_path(task),
+                method: :delete,
+                data: { confirm: "Are you sure?" }) do %>
+        <i class="far fa-trash-alt"></i>
+    <% end %>    
+    </li>
+  <% end %>
+</ul>
+
+<br>
+<%= link_to "Add new task", tasks_new_path %>
+
+
+

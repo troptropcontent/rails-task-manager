@@ -1,0 +1,18 @@
+<h1><%= @task.title %></h1>
+<h2><%= @task.details %></h2>
+
+<div>
+  <% if @task.completed %>
+    <input type="checkbox" id="completed" name="completed" checked disabled >
+    <% else %>
+    <input type="checkbox" id="completed" name="completed" disabled  >
+  <% end %>
+  <label for="completed">This task have been completed</label>
+</div>
+
+<br>
+<%= link_to(edit_task_path) do %>
+    <i class="fa fa-edit"></i>
+<% end %>  
+<br>
+<%= link_to "Go back home", tasks_path %>
